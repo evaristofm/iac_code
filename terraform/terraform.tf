@@ -1,16 +1,13 @@
-terraform {
-  required_providers {
-    aws = {
-        source = "hashicorp/aws"
-        version = ">= 5.25.0"
-    }
-  }
 
+provider "aws" {
+    region = "us-east-1"
+}
+
+
+terraform {
   backend "s3" {
     bucket = "cloud-devops001"
-    key    = "terraform.tfstate"
+    key    = "terraform-test.tfstate"
     region = "us-east-1"
   }
-
-  required_version = ">= 1.6.3"
 }
